@@ -20,11 +20,34 @@ html(lang="en")
           h1.main__title Project X
           h2.main__subtitle Here goes the project description
         button.button.button--edit Edit
-      ul.project-list
-        li.project-list__item Default Task
-        li.project-list__item Default Task 1
-        li.project-list__item Default Task 2
-        li.project-list__item Default Task 3
-        li.project-list__item Default Task 4
-        li.project-list__item Default Task 5
-      button.button Add Task
+      ul.projects-list#projects-list
+        li.projects-list__item
+          div.projects-list__priority.priority1
+          div.projects-list__checkbox
+          span.projects-list__name Default Task 1
+          span.projects-list__time 24:00:00
+        li.projects-list__item
+          div.projects-list__priority.priority2
+          div.projects-list__checkbox
+          span.projects-list__name Default Task 2
+          span.projects-list__time 24:00:00
+        li.projects-list__item
+          div.projects-list__priority.priority3
+          div.projects-list__checkbox
+          span.projects-list__name Default Task 3
+          span.projects-list__time 24:00:00
+        li.projects-list__item
+          div.projects-list__priority.priority1
+          div.projects-list__checkbox
+          span.projects-list__name Default Task 4
+          span.projects-list__time 24:00:00
+      form.projects-list__item.form
+        input(type='text' placeholder='Introduce your task...').form__task-name
+        div.form__priority.form__priority--high
+        div.form__priority.form__priority--medium
+        div.form__priority.form__priority--low
+        input(type='date').form__calendar
+        button.button.button--save Save
+        button.button.button--cancel Delete
+
+      button.button.button--list Add Task
