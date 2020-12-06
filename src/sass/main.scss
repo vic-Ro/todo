@@ -46,6 +46,9 @@
   &:focus {
     outline: none;
   }
+  &:active {
+    transform: scale(0.98);
+  }
   &::before {
     color: $red;
     content: '\002B';
@@ -71,12 +74,22 @@
     }
   }
   &--save {
-    margin-left: 1em;
     margin-right: 1em;
     background-color: $blue;
   }
   &--cancel {
     background-color: $red;
+  }
+  &__project-form {
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 0.5em;
+    &::before {
+      display: none;
+    }
+    &:hover {
+      background-color: $gray5;
+    }
   }
 }
 
@@ -212,4 +225,17 @@
 
 .priority3 {
   background-color: $priority3;
+}
+
+.project-form {
+  &__name {
+    border: none;
+    outline: none;
+    border-radius: 0.3em;
+    padding: 0.4em;
+    font-size: 1em;
+    color: $gray5;
+    margin-bottom: 0.3em;
+    width: 90%;
+  }
 }

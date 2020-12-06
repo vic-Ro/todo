@@ -1,17 +1,12 @@
-const generateElement = (element, ...styles) => {
-  const elementTemplate = document.createElement(`${element}`);
-  [...styles].forEach((cssStyle) => {
-    elementTemplate.classList.add(cssStyle);
-  });
-  return elementTemplate;
-};
+import generateElement from './element-generator';
 
 const toDoTemplate = (task) => {
   const box = generateElement('li', 'projects-list__item');
+  box.setAttribute('data-id', task.getId());
   const priority = generateElement(
     'div',
     'projects-list__priority',
-    `priority${task.getPriority()}`,
+    `${task.getPriority()}`,
   );
   const title = generateElement('span', 'projects-list__name');
   title.textContent = `${task.getTitle()}`;

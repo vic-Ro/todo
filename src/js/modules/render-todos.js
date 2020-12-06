@@ -1,6 +1,6 @@
-import toDoTemplate from './task-dom';
+import toDoTemplate from './todos-template';
 
-const renderProject = (project) => {
+const renderToDos = (project) => {
   const projectsList = document.getElementById('projects-list');
   const fragment = document.createDocumentFragment();
   project.getTasks().forEach((task) => {
@@ -9,4 +9,4 @@ const renderProject = (project) => {
   projectsList.appendChild(fragment);
 };
 
-export default renderProject;
+export default renderToDos;
