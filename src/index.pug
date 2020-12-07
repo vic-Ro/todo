@@ -3,55 +3,36 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    <script src="https://kit.fontawesome.com/b906595944.js" crossorigin="anonymous"></script>
     title Document
   body
     header.header
       nav.nav
         h2.nav__title Projects
         ul.menu#menu
-          form.menu__item(action="#").project-form#project-form
-            input(type='text' placeholder='Name your project...').project-form__name
-            input(type='text' placeholder='Description...').project-form__name
+          form(action="#").project-form.hidden#project-form
+            input(type='text' placeholder='Name your project...' required).project-form__name
+            input(type='text' placeholder='Description...' required).project-form__name
             button.button.button__project-form.button--save Save
             button.button.button__project-form.button--cancel Cancel
-          //- li.menu__item Project 2
-          //- li.menu__item Project 3
-          //- li.menu__item Project 4
-        button.button Add Project
-    main.main
+        button.button#addproject-button Add Project
+    main.main#main
       div.main__container
         div
           h1.main__title Project X
           h2.main__subtitle Here goes the project description
         button.button.button--edit Edit
       ul.projects-list#projects-list
-        //- li.projects-list__item
-        //-   div.projects-list__priority.priority1
-        //-   div.projects-list__checkbox
-        //-   span.projects-list__name Default Task 1
-        //-   span.projects-list__time 24:00:00
-        //- li.projects-list__item
-        //-   div.projects-list__priority.priority2
-        //-   div.projects-list__checkbox
-        //-   span.projects-list__name Default Task 2
-        //-   span.projects-list__time 24:00:00
-        //- li.projects-list__item
-        //-   div.projects-list__priority.priority3
-        //-   div.projects-list__checkbox
-        //-   span.projects-list__name Default Task 3
-        //-   span.projects-list__time 24:00:00
-        //- li.projects-list__item
-        //-   div.projects-list__priority.priority1
-        //-   div.projects-list__checkbox
-        //-   span.projects-list__name Default Task 4
-        //-   span.projects-list__time 24:00:00
-      form.projects-list__item.form
-        input(type='text' placeholder='Introduce your task...').form__task-name
-        div.form__priority.form__priority--high
-        div.form__priority.form__priority--medium
-        div.form__priority.form__priority--low
-        input(type='date').form__calendar
-        button.button.button--save Save
+      form(action='#').form#todos-form
+        input(type='text' placeholder='Name your task...' required).form__task-name
+        input(type='text' placeholder='Description...' required).form__task-name
+        input(type='radio' name='priority' value='priority1' checked).form__radio#priority1
+        label(for='priority1').form__priority.form__priority--high
+        input(type='radio' name='priority' value='priority2').form__radio#priority2
+        label(for='priority2').form__priority.form__priority--medium
+        input(type='radio' name='priority' value='priority3').form__radio#priority3
+        label(for='priority3').form__priority.form__priority--low
+        input(type='date' required).form__calendar#form-date
+        button.button.button--save Save 
         button.button.button--cancel Cancel
-
-      button.button.button--list Add Task
+      button.button.button--list#addtask-button Add Task

@@ -9,10 +9,6 @@ const addProject = (projectsArray, projectsForm) => {
     ),
   );
   renderOneProject(projectsArray[projectsArray.length - 1]);
-  console.log(
-    projectsArray[projectsArray.length - 1].getProjectName(),
-    projectsArray[projectsArray.length - 1].getDescription(),
-  );
 };
 
 export default addProject;

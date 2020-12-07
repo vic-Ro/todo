@@ -9,4 +9,9 @@ const renderToDos = (project) => {
   projectsList.appendChild(fragment);
 };
 
-export default renderToDos;
+const renderOneToDo = (toDo) => {
+  const projectsList = document.getElementById('projects-list');
+  projectsList.appendChild(toDoTemplate(toDo));
+};
+
+export { renderToDos, renderOneToDo };

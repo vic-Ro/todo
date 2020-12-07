@@ -26,9 +26,20 @@
     margin-bottom: 0.4em;
     padding: 1em;
     font-size: 1em;
+    display: flex;
+    justify-content: space-between;
     &:hover {
       background-color: $gray3;
     }
+  }
+}
+.fas {
+  cursor: pointer;
+}
+.fa-trash {
+  color: $gray2;
+  &:hover {
+    color: $red;
   }
 }
 
@@ -120,6 +131,7 @@
   padding: 0;
   &__item {
     display: flex;
+    flex-wrap: wrap;
     position: relative;
     justify-content: space-between;
     list-style: none;
@@ -130,7 +142,6 @@
     padding: 1em;
     font-size: 1em;
     &:hover {
-      transform: scale(1.003);
       box-shadow: 0 0 20px $gray0;
     }
   }
@@ -164,13 +175,29 @@
     margin-left: 1em;
   }
   &__time {
+    margin-right: 2em;
   }
 }
 
 .form {
   position: relative;
+  padding: 1em;
+  list-style: none;
+  border: 1px solid $gray5;
+  border-radius: 0.3em;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  font-size: 1em;
+  &:hover {
+    box-shadow: 0 0 20px $gray0;
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   &__task-name {
-    flex-grow: 2;
+    min-width: 300px;
     margin-right: 2em;
   }
   &__calendar {
@@ -179,6 +206,7 @@
   }
   &__task-name,
   &__calendar {
+    height: 35px;
     border: none;
     outline: none;
     border-radius: 0.3em;
@@ -187,14 +215,16 @@
     color: $gray5;
   }
   &__priority {
-    width: 1.5em;
-    height: 1.5em;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
     right: 30em;
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 0.8em;
     border-radius: 0.5em;
     cursor: pointer;
+    vertical-align: bottom;
     &--high {
       background-color: $priority1;
       right: 29em;
@@ -207,6 +237,12 @@
       margin-right: 3em;
       background-color: $priority3;
       right: 25em;
+    }
+  }
+  &__radio {
+    display: none;
+    &:checked + label {
+      border: 2px solid $font-color;
     }
   }
 }
@@ -228,6 +264,14 @@
 }
 
 .project-form {
+  cursor: pointer;
+  margin-top: 0.4em;
+  border-radius: 0.3em;
+  margin-bottom: 0.4em;
+  padding: 1em;
+  &:hover {
+    background-color: $gray3;
+  }
   &__name {
     border: none;
     outline: none;
@@ -238,4 +282,11 @@
     margin-bottom: 0.3em;
     width: 90%;
   }
+}
+
+.error-msg {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.8em;
+  color: $red;
 }

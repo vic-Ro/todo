@@ -11,12 +11,14 @@ const toDoTemplate = (task) => {
   const title = generateElement('span', 'projects-list__name');
   title.textContent = `${task.getTitle()}`;
   const time = generateElement('span', 'projects-list__time');
-  time.textContent = '24h';
+  time.textContent = `${task.getDueDate()}`;
+  const deleteButton = generateElement('i', 'fas', 'fa-trash');
   box.append(
     priority,
     generateElement('div', 'projects-list__checkbox'),
     title,
     time,
+    deleteButton,
   );
   return box;
 };
