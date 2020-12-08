@@ -10,9 +10,11 @@
 
 // Base
 body {
+  background-color: $gray1;
   color: $font-color;
   display: flex;
+  justify-content: center;
   font-family: 'Lato', sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
 }
