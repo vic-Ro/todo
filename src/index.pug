@@ -10,29 +10,15 @@ html(lang="en")
       nav.nav
         h2.nav__title Projects
         ul.menu#menu
-          li.menu__item
-            span.menu__title Proyecto 1
-            i.fas.fa-trash
-          li.menu__item
-            span.menu__title Proyecto 2
-            i.fas.fa-trash
-          li.menu__item
-            span.menu__title Proyecto 3
-            i.fas.fa-trash
-          li.menu__item
-            span.menu__title Proyecto 4
-            i.fas.fa-trash
-          li.menu__item
-            span.menu__title Proyecto 5
-            i.fas.fa-trash
-          form(action="").project-form#project-form
+          form(action="").project-form.hidden#project-form
             div.group__project-name
-              input(type='text' placeholder='Name your project...' required).project-form__name
+              input(type='text' placeholder='Name your project...' name='name' required).project-form__name
             div.group__project-description
-              input(type='text' placeholder='Description...' required).project-form__description
+              input(type='text' placeholder='Description...' name='description' required).project-form__description
             div.group__project-buttons
-              button.button.button__project-form.button--save Save
+              button(type='submit').button.button__project-form.button--save Save
               button.button.button__project-form.button--cancel Cancel
+            span.error-msg.hidden Revisa los campos del formulario
         button.button#addproject-button Add Project
     main.main#main
       section.main__container
@@ -41,42 +27,14 @@ html(lang="en")
           h2.main__subtitle Here goes the project description
         button.button.button--edit Edit
       ul.projects-list#projects-list
-        li.projects-list__item
-          div.projects-list__priority.priority1
-          span.projects-list__checkbox
-          span.projects-list__name Proyecto 1
-          //- span.projects-list__description Esta es la descripción del proyecto 1
-          span.projects-list__time 12-1-2020
-          i.fas.fa-trash
-        li.projects-list__item
-          div.projects-list__priority.priority3
-          span.projects-list__checkbox
-          span.projects-list__name Proyecto 2
-          //- span.projects-list__description Esta es la descripción del proyecto 1
-          span.projects-list__time 12-1-2020
-          i.fas.fa-trash
-        li.projects-list__item
-          div.projects-list__priority.priority3
-          span.projects-list__checkbox
-          span.projects-list__name Proyecto 3
-          //- span.projects-list__description Esta es la descripción del proyecto 1
-          span.projects-list__time 12-1-2020
-          i.fas.fa-trash
-        li.projects-list__item
-          div.projects-list__priority.priority2
-          span.projects-list__checkbox
-          span.projects-list__name Proyecto 4
-          //- span.projects-list__description Esta es la descripción del proyecto 1
-          span.projects-list__time 12-1-2020
-          i.fas.fa-trash
-      form(action='').form#todos-form
+      form(action='').form.hidden#todos-form
         div.group
           div.group__todo-name
-            input(type='text' placeholder='Name your task...' required).form__task-name
+            input(type='text' placeholder='Name your task...' name='name' required).form__task-name
           div.group__todo-description
-            input(type='text' placeholder='Description...' required).form__task-description
+            input(type='text' placeholder='Description...' name='description' required).form__task-description
           div.group__todo-priority
-            input(type='radio' name='priority' value='priority1' checked).form__radio#priority1
+            input(type='radio' name='priority' value='priority1').form__radio#priority1
             label(for='priority1').form__priority.form__priority--high
             input(type='radio' name='priority' value='priority2').form__radio#priority2
             label(for='priority2').form__priority.form__priority--medium
@@ -85,7 +43,7 @@ html(lang="en")
           div.group__todo-duedate
             input(type='date' required).form__calendar#form-date
           div.group__todo-buttons
-            button.button.button--save Save 
+            button(type='submit').button.button--save Save 
             button.button.button--cancel Cancel
-        span.error-msg Revisa los campos del formulario
+        span.error-msg.hidden Revisa los campos del formulario
       button.button.button--list#addtask-button Add Task

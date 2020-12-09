@@ -1,36 +1,27 @@
-import generateElement from './element-generator';
+import { isPast, parseISO } from 'date-fns';
 
-// TODO Refactorizar
+const validateText = (rule, input) => {
+  if (rule.test(input.value)) return true;
+  return false;
+};
 
-const validateText = (input, form, charLimit, field) => {
-  if (input === '') {
-    if (form.lastChild.classList.contains('error-msg')) {
-      const child = form.lastChild;
-      child.textContent = `${field} field can't be empty.`;
+const validatePriority = () => {
+  const priorityInputs = [...document.querySelectorAll('.form__radio')];
+  if (
+    priorityInputs.filter((input) => {
+      if (input.checked) return true;
       return false;
-    }
-    const errorMsg = generateElement('span', 'error-msg');
-    errorMsg.textContent = `${field} field can't be empty.`;
-    form.appendChild(errorMsg);
-    return false;
+    }).length > 0
+  ) {
+    return true;
   }
-  if (input.length > charLimit) {
-    if (form.lastChild.classList.contains('error-msg')) {
-      const child = form.lastChild;
-      child.textContent = `${field} field must be ${charLimit} or less characters.`;
-      return false;
-    }
-    const errorMsg = generateElement('span', 'error-msg');
-    errorMsg.textContent = `${field} field must be ${charLimit} or less characters.`;
-    form.appendChild(errorMsg);
-    return false;
-  }
-  if (form.lastChild.classList.contains('error-msg')) {
-    form.lastChild.remove();
-  }
+  return false;
+};
+
+const validateDate = (dueDate) => {
+  if (dueDate.value === '') return false;
+  if (isPast(parseISO(dueDate.value)) === true) return false;
   return true;
 };
 
-const validateDate = (input, form) => {};
-
-export default validateText;
+export { validateText, validatePriority, validateDate };
