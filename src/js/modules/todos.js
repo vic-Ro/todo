@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 
 const createToDo = (title, description, dueDate, priority) => {
   let isDone = false;
-  const id = nanoid();
+  let id = nanoid();
   const updateIsDone = () => {
     isDone = !isDone;
   };
@@ -12,7 +12,6 @@ const createToDo = (title, description, dueDate, priority) => {
   const getDueDate = () => dueDate;
   const getPriority = () => priority;
   const getIsDone = () => isDone;
-  const getId = () => id;
 
   return {
     getTitle,
@@ -21,7 +20,7 @@ const createToDo = (title, description, dueDate, priority) => {
     getPriority,
     updateIsDone,
     getIsDone,
-    getId,
+    id,
   };
 };
 

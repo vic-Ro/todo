@@ -1,17 +1,14 @@
 import { projectTemplate, toDoTemplate } from './templates';
+import { deleteProjectButton, deleteToDoButton } from './delete-elements';
 
-const renderAllProjects = (projectsArray) => {
+const renderProjects = (projectsArray) => {
   const projectsList = document.getElementById('menu');
   const fragment = document.createDocumentFragment();
   projectsArray.forEach((project) => {
     fragment.appendChild(projectTemplate(project));
   });
-  projectsList.lastChild.before(fragment);
-};
-
-const renderOneProject = (project) => {
-  const projectsList = document.getElementById('menu');
-  projectsList.lastChild.before(projectTemplate(project));
+  projectsList.append(fragment);
+  deleteProjectButton(projectsArray);
 };
 
 const renderToDos = (project) => {
@@ -21,11 +18,18 @@ const renderToDos = (project) => {
     fragment.appendChild(toDoTemplate(task));
   });
   projectsList.appendChild(fragment);
+  deleteToDoButton(project);
 };
 
-const renderOneToDo = (toDo) => {
-  const projectsList = document.getElementById('projects-list');
-  projectsList.appendChild(toDoTemplate(toDo));
+const renderListTitle = (project) => {
+  const listTitle = document.querySelector('.main__title');
+  const listSubtitle = document.querySelector('.main__subtitle');
+  listTitle.textContent = project.getProjectName();
+  listSubtitle.textContent = project.getDescription();
 };
 
-export { renderAllProjects, renderOneProject, renderToDos, renderOneToDo };
+export {
+  renderProjects,
+  renderToDos,
+  renderListTitle,
+};

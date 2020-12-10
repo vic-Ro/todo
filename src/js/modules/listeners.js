@@ -1,13 +1,12 @@
 import { validateText, validatePriority, validateDate } from './validate';
 import { addProject, addToDo } from './add-elements';
-import { projectTemplate } from './templates';
+import { clearToDos } from './clear-dom';
+import { renderToDos, renderListTitle } from './render';
 
 const regEx = {
   name: /^[a-zA-Z0-9À-ÿ\s]{1,20}$/,
   description: /^[a-zA-Z0-9À-ÿ\s]{1,60}$/,
 };
-
-//* Listeners
 
 const projectsFormListener = (projectsArray) => {
   const form = document.getElementById('project-form');
@@ -45,7 +44,7 @@ const projectsFormListener = (projectsArray) => {
   });
 };
 
-const todosFormListener = (project) => {
+const todosFormListener = (projectsArray) => {
   const form = document.getElementById('todos-form');
   const name = document.querySelector('.form__task-name');
   const description = document.querySelector('.form__task-description');
@@ -65,7 +64,7 @@ const todosFormListener = (project) => {
       validatePriority() === true &&
       validateDate(dueDate) === true
     ) {
-      addToDo(project, name, description, dueDate);
+      addToDo(projectsArray, name, description, dueDate);
       form.reset();
       if (form.lastChild.classList.contains('error-msg')) {
         form.lastChild.classList.add('hidden');
@@ -80,6 +79,23 @@ const todosFormListener = (project) => {
     form.reset();
     if (form.lastChild.classList.contains('error-msg')) {
       form.lastChild.classList.add('hidden');
+    }
+  });
+};
+
+const addProjectsListener = (projectsArray) => {
+  const projectList = document.getElementById('menu');
+  projectList.addEventListener('click', (e) => {
+    const projects = [...projectList.childNodes];
+    if (e.target.classList.contains('menu__item')) {
+      projects.forEach((project) => {
+        project.classList.replace('menu__item--active', 'menu__item');
+      });
+      e.target.classList.replace('menu__item', 'menu__item--active');
+      const [activeProject] = projectsArray.filter((project) => project.id === e.target.dataset.id);
+      clearToDos();
+      renderToDos(activeProject);
+      renderListTitle(activeProject);
     }
   });
 };
@@ -100,11 +116,10 @@ const addToDoButtonListener = () => {
   });
 };
 
-// export default addToDoButtonListener;
-
 export {
   todosFormListener,
   projectsFormListener,
   addToDoButtonListener,
   addProjectButtonListener,
+  addProjectsListener,
 };

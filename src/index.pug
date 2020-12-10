@@ -10,20 +10,20 @@ html(lang="en")
       nav.nav
         h2.nav__title Projects
         ul.menu#menu
-          form(action="").project-form.hidden#project-form
-            div.group__project-name
-              input(type='text' placeholder='Name your project...' name='name' required).project-form__name
-            div.group__project-description
-              input(type='text' placeholder='Description...' name='description' required).project-form__description
-            div.group__project-buttons
-              button(type='submit').button.button__project-form.button--save Save
-              button.button.button__project-form.button--cancel Cancel
-            span.error-msg.hidden Revisa los campos del formulario
+        form(action="").project-form.hidden#project-form
+          div.group__project-name
+            input(type='text' placeholder='Name your project...' name='name' required).project-form__name
+          div.group__project-description
+            input(type='text' placeholder='Description...' name='description' required).project-form__description
+          div.group__project-buttons
+            button(type='submit').button.button__project-form.button--save Save
+            button.button.button__project-form.button--cancel Cancel
+          span.error-msg.hidden Revisa los campos del formulario
         button.button#addproject-button Add Project
     main.main#main
       section.main__container
         div
-          h1.main__title Project X
+          h1.main__title Choose one project
           h2.main__subtitle Here goes the project description
         button.button.button--edit Edit
       ul.projects-list#projects-list

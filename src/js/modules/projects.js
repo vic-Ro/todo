@@ -1,5 +1,8 @@
+import { nanoid } from 'nanoid';
+
 const createProject = (projectName, description) => {
   const tasks = [];
+  const id = nanoid();
   const getProjectName = () => projectName;
   const getDescription = () => description;
   const getTasks = () => tasks;
@@ -10,6 +13,7 @@ const createProject = (projectName, description) => {
     getProjectName,
     getDescription,
     getTasks,
+    id,
     addTasks,
     removeTask,
   };

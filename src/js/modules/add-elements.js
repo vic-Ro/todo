@@ -1,18 +1,21 @@
 import createProject from './projects';
 import createToDo from './todos';
-import { renderOneToDo, renderOneProject } from './render';
+import { renderToDos, renderProjects } from './render';
+import { clearToDos, clearProjects } from './clear-dom';
 
 const addProject = (projectsArray, name, description) => {
   projectsArray.push(createProject(name, description));
-  renderOneProject(projectsArray[projectsArray.length - 1]);
+  clearProjects();
+  renderProjects(projectsArray);
 };
 
-const addToDo = (project, name, description, dueDate) => {
-  const form = document.getElementById('todos-form');
+const addToDo = (projectsArray, name, description, dueDate) => {
   const priorityChosen = [...document.getElementsByName('priority')].filter(
     (input) => input.checked === true,
   );
-  project.addTasks(
+  const projectID = document.querySelector('.menu__item--active').dataset.id;
+  const index = projectsArray.findIndex(((project) => project.id === projectID));
+  projectsArray[index].addTasks(
     createToDo(
       name.value,
       description.value,
@@ -20,7 +23,8 @@ const addToDo = (project, name, description, dueDate) => {
       priorityChosen[0].defaultValue,
     ),
   );
-  renderOneToDo(project.getTasks()[project.getTasks().length - 1]);
+  clearToDos();
+  renderToDos(projectsArray[index]);
 };
 
 export { addProject, addToDo };
