@@ -27,12 +27,12 @@ module.exports = merge(common, {
               postcssOptions: {
                 plugins: ['rucksack-css', 'autoprefixer', 'cssnano'],
               },
-            }
+            },
           },
           // Compiles Sass to CSS
           "sass-loader",
         ],
-      },      
+      },
     ],
   },
 });

@@ -9,16 +9,18 @@ const renderProjects = (projectsArray) => {
   });
   projectsList.append(fragment);
   deleteProjectButton(projectsArray);
+  const newSelected = [...document.querySelectorAll('.menu__item')];
+  newSelected[0].click();
 };
 
-const renderToDos = (project) => {
+const renderToDos = (projectsArray, project) => {
   const projectsList = document.getElementById('projects-list');
   const fragment = document.createDocumentFragment();
   project.getTasks().forEach((task) => {
     fragment.appendChild(toDoTemplate(task));
   });
   projectsList.appendChild(fragment);
-  deleteToDoButton(project);
+  deleteToDoButton(projectsArray, project);
 };
 
 const renderListTitle = (project) => {
@@ -28,8 +30,4 @@ const renderListTitle = (project) => {
   listSubtitle.textContent = project.getDescription();
 };
 
-export {
-  renderProjects,
-  renderToDos,
-  renderListTitle,
-};
+export { renderProjects, renderToDos, renderListTitle };

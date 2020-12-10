@@ -12,13 +12,10 @@ const projectsFormListener = (projectsArray) => {
   const form = document.getElementById('project-form');
   const name = document.querySelector('.project-form__name');
   const description = document.querySelector('.project-form__description');
-  const projectSaveButton = document.querySelector(
-    '.button__project-form.button--save',
-  );
   const projectCancelButton = document.querySelector(
     '.button__project-form.button--cancel',
   );
-  projectSaveButton.addEventListener('click', (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (
       validateText(regEx.name, name) === true &&
@@ -49,14 +46,10 @@ const todosFormListener = (projectsArray) => {
   const name = document.querySelector('.form__task-name');
   const description = document.querySelector('.form__task-description');
   const dueDate = document.querySelector('.form__calendar');
-
-  const todoSaveButton = document.querySelector(
-    'div.group__todo-buttons .button--save',
-  );
   const todoCancelButton = document.querySelector(
     'div.group__todo-buttons .button--cancel',
   );
-  todoSaveButton.addEventListener('click', (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (
       validateText(regEx.name, name) === true &&
@@ -92,9 +85,11 @@ const addProjectsListener = (projectsArray) => {
         project.classList.replace('menu__item--active', 'menu__item');
       });
       e.target.classList.replace('menu__item', 'menu__item--active');
-      const [activeProject] = projectsArray.filter((project) => project.id === e.target.dataset.id);
+      const [activeProject] = projectsArray.filter(
+        (project) => project.id === e.target.dataset.id,
+      );
       clearToDos();
-      renderToDos(activeProject);
+      renderToDos(projectsArray, activeProject);
       renderListTitle(activeProject);
     }
   });

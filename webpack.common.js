@@ -14,7 +14,7 @@ module.exports = {
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
       title: 'Development',
-      template: path.resolve('src', 'index.pug')
+      template: path.resolve('src', 'index.pug'),
     }),
   ],
   module: {
@@ -25,14 +25,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.pug$/i,
         use: ['pug-loader'],
-      },     
+      },
     ],
   },
 };
