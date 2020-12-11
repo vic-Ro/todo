@@ -1,5 +1,6 @@
 import { projectTemplate, toDoTemplate } from './templates';
 import { deleteProjectButton, deleteToDoButton } from './delete-elements';
+import todoCheckBoxListener from './todos-listeners';
 
 const renderProjects = (projectsArray) => {
   const projectsList = document.getElementById('menu');
@@ -21,6 +22,7 @@ const renderToDos = (projectsArray, project) => {
   });
   projectsList.appendChild(fragment);
   deleteToDoButton(projectsArray, project);
+  todoCheckBoxListener(projectsArray, project);
 };
 
 const renderListTitle = (project) => {

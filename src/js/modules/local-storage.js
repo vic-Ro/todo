@@ -6,6 +6,7 @@ const getAllTasks = (project) => {
       description: task.getDescription(),
       dueDate: task.getDueDate(),
       priority: task.getPriority(),
+      isDone: task.getIsDone(),
     });
   });
   return arr;

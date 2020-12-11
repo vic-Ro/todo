@@ -39,13 +39,15 @@ const toDoTemplate = (task) => {
   const time = generateElement('span', 'projects-list__time');
   time.textContent = generateDate(parseISO(task.getDueDate()));
   const deleteButton = generateElement('i', 'fas', 'fa-trash');
-  box.append(
-    priority,
-    generateElement('div', 'projects-list__checkbox'),
-    title,
-    time,
-    deleteButton,
-  );
+  const checkbox = generateElement('div', 'projects-list__checkbox');
+  if (task.getIsDone() === true) {
+    box.classList.add('projects-list__item--checked');
+    checkbox.classList.add('projects-list__checkbox--checked');
+    title.classList.add('projects-list__name--checked');
+    time.classList.add('projects-list__time--checked');
+    priority.classList.add('prioritychecked');
+  }
+  box.append(priority, checkbox, title, time, deleteButton);
   return box;
 };
 

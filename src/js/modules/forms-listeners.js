@@ -79,6 +79,8 @@ const todosFormListener = (projectsArray) => {
 const addProjectsListener = (projectsArray) => {
   const projectList = document.getElementById('menu');
   projectList.addEventListener('click', (e) => {
+    const editProject = document.getElementById('edit-project-form');
+    if (editProject !== null) return;
     const projects = [...projectList.childNodes];
     if (e.target.classList.contains('menu__item')) {
       projects.forEach((project) => {

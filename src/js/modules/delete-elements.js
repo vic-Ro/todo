@@ -4,6 +4,8 @@ const deleteProjectButton = (projectsArray) => {
   const deleteButtons = document.querySelectorAll('.menu i');
   deleteButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
+      const editProject = document.getElementById('edit-project-form');
+      if (editProject !== null) return;
       const projectID = e.target.parentElement.dataset.id;
       const projectIndex = projectsArray.findIndex(
         (project) => project.id === projectID,

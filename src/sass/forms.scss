@@ -24,6 +24,15 @@
   }
 }
 
+.edit-project {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  margin-top: 0.4em;
+  border-radius: 0.3em;
+  margin-bottom: 0.4em;
+  padding: 1em;
+}
 // To dos - Form
 
 .form {

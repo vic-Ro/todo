@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid';
 
-const createToDo = (title, description, dueDate, priority) => {
-  let isDone = false;
-  let id = nanoid();
+const createToDo = (title, description, dueDate, priority, done) => {
+  let isDone = done;
+  const id = nanoid();
   const updateIsDone = () => {
     isDone = !isDone;
   };
