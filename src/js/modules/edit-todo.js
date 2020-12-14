@@ -155,8 +155,7 @@ const editTodoListener = (projectsArray, project) => {
     button.addEventListener('click', () => {
       const editProjectForm = document.getElementById('edit-project-form');
       if (editProjectForm) return;
-      const saveButton = document.querySel
-      ector('.edit-todo__save');
+      const saveButton = document.querySelector('.edit-todo__save');
       if (saveButton !== null) return;
       button.classList.add('hidden');
       button.classList.add('edit-button__active');
