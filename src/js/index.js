@@ -35,10 +35,10 @@ if (data === null || data.length === 0) {
   });
 }
 
-addProjectButtonListener(); // OK
-addToDoButtonListener(); // OK
-addProjectsListener(projects); // OK
-projectsFormListener(projects); // OK
-todosFormListener(projects); // OK
-renderProjects(projects); // OK
+addProjectButtonListener();
+addToDoButtonListener();
+addProjectsListener(projects);
+projectsFormListener(projects);
+todosFormListener(projects);
+renderProjects(projects);
 editProjectListener(projects);

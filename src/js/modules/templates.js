@@ -39,16 +39,23 @@ const toDoTemplate = (task) => {
   const time = generateElement('span', 'projects-list__time');
   time.textContent = generateDate(parseISO(task.getDueDate()));
   const deleteButton = generateElement('i', 'fas', 'fa-trash');
+  const expandButton = generateElement('span', 'projects-list__expand');
+  expandButton.textContent = String.fromCharCode(10094);
+  const description = generateElement('span', 'projects-list__description', 'hidden');
+  description.textContent = `${task.getDescription()}`;
   const checkbox = generateElement('div', 'projects-list__checkbox');
+  const editButton = generateElement('button', 'button', 'button--edit-todo', 'hidden');
+  editButton.textContent = 'Edit';
   if (task.getIsDone() === true) {
     box.classList.add('projects-list__item--checked');
     checkbox.classList.add('projects-list__checkbox--checked');
     title.classList.add('projects-list__name--checked');
     time.classList.add('projects-list__time--checked');
+    description.classList.add('projects-list__description--checked');
     priority.classList.add('prioritychecked');
   }
-  box.append(priority, checkbox, title, time, deleteButton);
+  box.append(priority, checkbox, expandButton, title, time, deleteButton, editButton, description);
   return box;
 };
 
-export { projectTemplate, toDoTemplate };
+export { projectTemplate, toDoTemplate, generateDate };

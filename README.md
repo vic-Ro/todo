@@ -1,10 +1,18 @@
-# todo
-hmr bug when using .browserslistrc
+# TODO List
 
-fix:
+> ## From The Odin Project's [curriculum](https://www.theodinproject.com/courses/javascript/lessons/todo-list)
 
-webpack-dev-server > lib > utils > addEntries.js > change to:    
+> - [Live Demo](https://vic-ro.github.io/todo/)
 
-const webTarget = [
-        'browserslist',
-        'web',
+> ## Things I put into practice:
+> - Factory functions and closures
+> - ES6 Modules
+> - Dom manipulation
+> - Sass
+> - Pug
+> - Webpack
+
+> ## Room for improvement:
+> - Git workflow (make better commits).
+> - Refactorize.
+> - Better validation error messages.

@@ -5,8 +5,7 @@ const validateText = (rule, input) => {
   return false;
 };
 
-const validatePriority = () => {
-  const priorityInputs = [...document.querySelectorAll('.form__radio')];
+const validatePriority = (priorityInputs) => {
   if (
     priorityInputs.filter((input) => {
       if (input.checked) return true;

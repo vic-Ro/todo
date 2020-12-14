@@ -33,7 +33,8 @@
   margin-bottom: 0.4em;
   padding: 1em;
 }
-// To dos - Form
+
+// Tdo - Form
 
 .form {
   display: flex;
@@ -78,13 +79,13 @@
     margin-bottom: auto;
     margin-right: 0.8em;
     border-radius: 1em;
-    &--high {
+    &--low {
       background-color: $priority1;
     }
     &--medium {
       background-color: $priority2;
     }
-    &--low {
+    &--high {
       background-color: $priority3;
     }
   }
@@ -97,7 +98,7 @@
   justify-content: space-between;
   &__todo-name,
   &__todo-description {
-    width: 350px;
+    width: 330px;
   }
   &__todo-priority {
     display: flex;
@@ -134,13 +135,18 @@
     font-weight: 900;
     margin-right: 0.5em;
   }
-  &--edit {
+  &--edit, &--edit-todo {
     font-size: 0.9em;
     padding: 0.6em;
     padding-right: 1em;
     &::before {
       color: $green;
     }
+  }
+  &--edit-todo {
+    grid-column: 4 / 6;
+    grid-row: 2 / 3;
+    justify-self: end;
   }
   &--list {
     position: absolute;
@@ -172,6 +178,56 @@
   }
 }
 
-.hidden {
-  display: none;
+.edit-todo {
+  &__name, &__description {
+    height: 25px;
+    background-color: $gray2;
+    border: none;
+    outline: none;
+    border-radius: 0.3em;
+    padding: 0.5em;
+    margin-left: 0.5em;
+    font-size: 1.1em;
+    color: $font-color;
+    width: 35%;
+  }
+  &__description {
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+    width: 75%;
+  }
+  &__calendar {
+    height: 25px;
+    background-color: $gray2;
+    border: none;
+    outline: none;
+    border-radius: 0.3em;
+    padding: 0.5em;
+    margin-right: 2em;
+    font-size: 1.1em;
+    color: $font-color;
+  }
+  &__priority {
+    display: flex;
+    grid-row: 2 / 3;
+    grid-column: 4 / 5;
+    justify-self: center;
+  }
+  &__save {
+    cursor: pointer;
+    font-size: 1em;
+    padding: 0.5em;
+    margin-left: 0.5em;
+    width: 4em;
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+    background-color: $blue;
+    &::before {
+      display: none;
+    }
+    &:hover {
+      background-color: $gray5;
+    }
+  }
 }
+

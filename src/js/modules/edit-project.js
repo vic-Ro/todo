@@ -1,6 +1,6 @@
 import generateElement from './element-generator';
-import { clearToDos, clearProjects } from './clear-dom';
-import { renderProjects, renderToDos, renderListTitle } from './render';
+import { clearProjects } from './clear-dom';
+import { renderProjects } from './render';
 import exportObject from './local-storage';
 
 const generateTitle = (project) => {
@@ -83,6 +83,8 @@ const generateForm = (title, subtitle, projectsArray) => {
 const editProjectListener = (projectsArray) => {
   const editButton = document.querySelector('.button.button--edit');
   editButton.addEventListener('click', () => {
+    const editForm = document.getElementById('edit-name-form');
+    if (editForm) return;
     const title = document.querySelector('.main__title');
     const subtitle = document.querySelector('.main__subtitle');
     editButton.classList.add('hidden');

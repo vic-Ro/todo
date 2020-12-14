@@ -46,6 +46,7 @@ const todosFormListener = (projectsArray) => {
   const name = document.querySelector('.form__task-name');
   const description = document.querySelector('.form__task-description');
   const dueDate = document.querySelector('.form__calendar');
+  const priorityInputs = [...document.getElementsByName('priority')];
   const todoCancelButton = document.querySelector(
     'div.group__todo-buttons .button--cancel',
   );
@@ -54,7 +55,7 @@ const todosFormListener = (projectsArray) => {
     if (
       validateText(regEx.name, name) === true &&
       validateText(regEx.description, description) === true &&
-      validatePriority() === true &&
+      validatePriority(priorityInputs) === true &&
       validateDate(dueDate) === true
     ) {
       addToDo(projectsArray, name, description, dueDate);
