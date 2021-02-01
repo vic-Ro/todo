@@ -2,7 +2,7 @@
 
 > ## From The Odin Project's [curriculum](https://www.theodinproject.com/courses/javascript/lessons/todo-list)
 
-> - [Live Demo](https://vic-ro.github.io/todo/)
+> - [Live Demo](https://vicromerodev.github.io/todo/)
 
 > ## Things I put into practice:
 > - Factory functions and closures
